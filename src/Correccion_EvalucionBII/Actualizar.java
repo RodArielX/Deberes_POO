@@ -78,6 +78,13 @@ public class Actualizar extends JFrame {
                 JOptionPane.showMessageDialog(null, "Paciente actualizado exitosamente.");
             } else {
                 JOptionPane.showMessageDialog(null, "Error al actualizar paciente.");
+                numCed.setText("");
+                numHisto.setText("");
+                nom.setText("");
+                apel.setText("");
+                cel.setText("");
+                años.setText("");
+                enfer.setText("");
             }
         } else {
             JOptionPane.showMessageDialog(null, "No se encontró ningún paciente con la cédula especificada.");

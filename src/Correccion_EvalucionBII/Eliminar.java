@@ -53,6 +53,7 @@ public class Eliminar extends JFrame {
             JOptionPane.showMessageDialog(null,"Registro eliminado correctamente");
         }else {
             JOptionPane.showMessageDialog(null,"No se encontro ningun registro");
+            numced.setText("");
         }
         connection.close();
         pst.close();

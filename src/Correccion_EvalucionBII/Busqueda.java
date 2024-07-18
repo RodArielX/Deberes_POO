@@ -17,6 +17,7 @@ public class Busqueda extends JFrame {
     private JLabel enfer;
     private JButton MENUButton;
     private JPanel panel_busqueda;
+    private JButton LIMPIARButton;
 
     public Busqueda(){
         super("BUSQUEDA DE PACIENTES");
@@ -38,6 +39,12 @@ public class Busqueda extends JFrame {
                 Menu ventana_menu = new Menu();
                 ventana_menu.iniciar();
                 dispose();
+            }
+        });
+        LIMPIARButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                limpiarRegistro();
             }
         });
     }
@@ -70,8 +77,19 @@ public class Busqueda extends JFrame {
             }
         }else {
             JOptionPane.showMessageDialog(null, "No se encontro el registro del paciente","ERROR",JOptionPane.ERROR_MESSAGE);
+            cedula.setText("");
         }
 
+    }
+    public void limpiarRegistro(){
+        cedula.setText("");
+        numCedu.setText("");
+        numHisto.setText("");
+        nom.setText("");
+        apel.setText("");
+        cel.setText("");
+        años.setText("");
+        enfer.setText("");
     }
 
     public void iniciar(){

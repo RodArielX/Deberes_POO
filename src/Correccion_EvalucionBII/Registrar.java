@@ -73,6 +73,13 @@ public class Registrar extends JFrame{
         int row = pst.executeUpdate();
         if (row > 0){
             JOptionPane.showMessageDialog(null,"Registro insertado correctamente");
+            cedu.setText("");
+            numhisto.setText("");
+            nom.setText("");
+            apel.setText("");
+            cel.setText("");
+            eda.setText("");
+            enfer.setText("");
         }
         pst.close();
         connection.close();
