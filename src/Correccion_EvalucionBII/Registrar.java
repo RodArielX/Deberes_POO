@@ -44,12 +44,13 @@ public class Registrar extends JFrame{
         });
     }
     public Connection conexion()throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/sistema_hospitalario";
-        String user = "root";
-        String password = "";
+        String url = "jdbc:mysql://uceiprz5lnyxwcun:2MEuIBNxrt0DUkvVbQaE@bi7ej80dgemnxzfdcj4h-mysql.services.clever-cloud.com:3306/bi7ej80dgemnxzfdcj4h";
+        String user = "uceiprz5lnyxwcun";
+        String password = "2MEuIBNxrt0DUkvVbQaE";
 
-        return DriverManager.getConnection(url, user, password);
+        return DriverManager.getConnection(url,user,password);
     }
+
     public void registrar()throws SQLException{
         String cedula = cedu.getText();
         String historial = numhisto.getText();
@@ -60,7 +61,7 @@ public class Registrar extends JFrame{
         String enfermedad = enfer.getText();
 
         Connection connection = conexion();
-        String sql = "INSERT INTO paciente (cedula, n_historial_clinico, nombre, apellido, telefono, edad, descripcion_enfermedad)values(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO PACIENTE (cedula, n_historial_clinico, nombre, apellido, telefono, edad, descripcion_enfermedad)values(?,?,?,?,?,?,?)";
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.setString(1,cedula);
         pst.setInt(2,Integer.parseInt(historial));

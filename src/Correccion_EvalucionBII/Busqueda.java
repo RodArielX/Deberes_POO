@@ -50,9 +50,9 @@ public class Busqueda extends JFrame {
     }
 
     public Connection conexion()throws SQLException{
-        String url = "jdbc:mysql://localhost:3306/sistema_hospitalario";
-        String user = "root";
-        String password = "";
+        String url = "jdbc:mysql://uceiprz5lnyxwcun:2MEuIBNxrt0DUkvVbQaE@bi7ej80dgemnxzfdcj4h-mysql.services.clever-cloud.com:3306/bi7ej80dgemnxzfdcj4h";
+        String user = "uceiprz5lnyxwcun";
+        String password = "2MEuIBNxrt0DUkvVbQaE";
 
         return DriverManager.getConnection(url, user, password);
     }
@@ -60,7 +60,7 @@ public class Busqueda extends JFrame {
     public void busquedaPacientes()throws SQLException{
         String numcedulaa = cedula.getText();
         Connection connection = conexion();
-        String sql = "SELECT * FROM paciente where cedula = ?";
+        String sql = "SELECT * FROM PACIENTE where cedula = ?";
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.setInt(1,Integer.parseInt(numcedulaa));
         ResultSet rs = pst.executeQuery();

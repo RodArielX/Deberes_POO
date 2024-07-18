@@ -28,9 +28,9 @@ public class Login extends JFrame{
     }
 
     public Connection conexion()throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/sistema_hospitalario";
-        String user = "root";
-        String password = "";
+        String url = "jdbc:mysql://uceiprz5lnyxwcun:2MEuIBNxrt0DUkvVbQaE@bi7ej80dgemnxzfdcj4h-mysql.services.clever-cloud.com:3306/bi7ej80dgemnxzfdcj4h";
+        String user = "uceiprz5lnyxwcun";
+        String password = "2MEuIBNxrt0DUkvVbQaE";
 
         return DriverManager.getConnection(url,user,password);
     }
@@ -39,14 +39,14 @@ public class Login extends JFrame{
         String usuario = user.getText();
         String contraseña = contra.getText();
         Connection connection = conexion();
-        String sql = "SELECT * FROM usuario where username = ? AND password = ? ";
+        String sql = "SELECT * FROM acceso where usuario = ? AND password = ? ";
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.setString(1,usuario);
         pst.setString(2,contraseña);
         ResultSet rs = pst.executeQuery();
 
         if (rs.next()){
-            String usuario1 = rs.getString("username");
+            String usuario1 = rs.getString("usuario");
             String contraseña1 = rs.getString("password");
             if (usuario1.equals(usuario) && contraseña1.equals(contraseña)){
                 Menu ventana_menu = new Menu();

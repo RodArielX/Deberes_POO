@@ -34,9 +34,9 @@ public class Eliminar extends JFrame {
         });
     }
     public Connection conexion()throws SQLException{
-        String url = "jdbc:mysql://localhost:3306/sistema_hospitalario";
-        String user = "root";
-        String password = "";
+        String url = "jdbc:mysql://uceiprz5lnyxwcun:2MEuIBNxrt0DUkvVbQaE@bi7ej80dgemnxzfdcj4h-mysql.services.clever-cloud.com:3306/bi7ej80dgemnxzfdcj4h";
+        String user = "uceiprz5lnyxwcun";
+        String password = "2MEuIBNxrt0DUkvVbQaE";
 
         return DriverManager.getConnection(url, user, password);
     }
@@ -44,7 +44,7 @@ public class Eliminar extends JFrame {
     public void eliminarPacientes()throws SQLException{
         String numcedula = numced.getText();
         Connection connection = conexion();
-        String sql = "DELETE FROM paciente where cedula = ?";
+        String sql = "DELETE FROM PACIENTE where cedula = ?";
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.setString(1,numcedula);
 

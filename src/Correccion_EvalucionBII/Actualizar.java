@@ -41,9 +41,9 @@ public class Actualizar extends JFrame {
     }
 
     public Connection conxion()throws SQLException{
-        String url = "jdbc:mysql://localhost:3306/sistema_hospitalario";
-        String user = "root";
-        String password = "";
+        String url = "jdbc:mysql://uceiprz5lnyxwcun:2MEuIBNxrt0DUkvVbQaE@bi7ej80dgemnxzfdcj4h-mysql.services.clever-cloud.com:3306/bi7ej80dgemnxzfdcj4h";
+        String user = "uceiprz5lnyxwcun";
+        String password = "2MEuIBNxrt0DUkvVbQaE";
 
         return DriverManager.getConnection(url, user, password);
     }
@@ -57,12 +57,12 @@ public class Actualizar extends JFrame {
         String edad = años.getText();
         String enfermedad = enfer.getText();
         Connection connection = conxion();
-        String checkSql = "SELECT COUNT(*) FROM paciente WHERE cedula = ?";
+        String checkSql = "SELECT COUNT(*) FROM PACIENTE WHERE cedula = ?";
         PreparedStatement checkPst = connection.prepareStatement(checkSql);
         checkPst.setString(1, numcedula);
         ResultSet rs = checkPst.executeQuery();
         if (rs.next() && rs.getInt(1) > 0){
-            String sql = "UPDATE paciente set n_historial_clinico = ?, nombre = ?, apellido = ?, telefono = ?, edad = ?, descripcion_enfermedad = ? where cedula = ?";
+            String sql = "UPDATE PACIENTE set n_historial_clinico = ?, nombre = ?, apellido = ?, telefono = ?, edad = ?, descripcion_enfermedad = ? where cedula = ?";
             PreparedStatement pst = connection.prepareStatement(sql);
             pst.setInt(1, Integer.parseInt(historial));
             pst.setString(2, nombre);
